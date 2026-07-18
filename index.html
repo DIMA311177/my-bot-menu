@@ -29,12 +29,28 @@
             margin-top: 0;
             color: var(--tg-theme-link-color, #2481cc);
         }
-        .btn {
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .nav-btn {
             display: block;
-            width: 100%;
+            text-align: center;
             padding: 12px;
             background-color: var(--tg-theme-button-color, #2481cc);
             color: var(--tg-theme-button-text-color, #ffffff);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .btn-close {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #e53935;
+            color: #ffffff;
             border: none;
             border-radius: 8px;
             font-size: 16px;
@@ -42,6 +58,7 @@
             cursor: pointer;
             text-align: center;
             box-sizing: border-box;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -50,6 +67,16 @@
     <div class="header">
         <h2>ℹ️ Информационный Портал</h2>
         <p>Добро пожаловать в главное меню управления!</p>
+    </div>
+
+    <!-- НОВЫЙ БЛОК НАВИГАЦИИ -->
+    <div class="card">
+        <h3>🌐 Навигация и ресурсы</h3>
+        <p>Быстрый переход по нашим официальным каналам:</p>
+        <div class="nav-links">
+            <a href="https://t.me/your_channel" target="_blank" class="nav-btn">📢 Наш Telegram канал</a>
+            <a href="https://github.com" target="_blank" class="nav-btn" style="background-color: #333; color: #fff;">💻 Наш GitHub</a>
+        </div>
     </div>
 
     <div class="card">
@@ -62,15 +89,14 @@
         <p>Заказ кастомных Discord/TG ботов, а также скриптов на языках Lua и Python под любые задачи.</p>
     </div>
 
-    <button class="btn" onclick="closeWebApp()">Закрыть меню</button>
+    <button class="btn-close" onclick="closeWebApp()">❌ Закрыть меню</button>
 
     <script>
-        // Инициализируем WebApp Telegram
         const tg = window.Telegram.WebApp;
-        tg.expand(); // Расширяем окно на весь экран телефона
+        tg.expand(); // Расширяем окно на весь экран
 
         function closeWebApp() {
-            tg.close(); // Функция закрытия окна по кнопке
+            tg.close(); // Функция закрытия окна
         }
     </script>
 </body>
